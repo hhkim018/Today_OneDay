@@ -2,6 +2,7 @@ import ExcelParser from "./utils/ExcelParser";
 import Image from "./content/Image"
 import Saying from "./content/Saying"
 import RequestSaying from "./content/RequestSaying"
+import {registerServiceWorker} from "./utils/ServiceWorker"
 import Alarm from "./utils/Alarm";
 import './App.css'
 import { useState } from "react";
@@ -11,11 +12,11 @@ function App() {
   const [saying,setSaying] = useState({word:"",people:""});
   
   useEffect(()=>{
-    console.log("s")
     ExcelParser().then(val=>{
       setSaying(val);
       Alarm(val);
     })
+    registerServiceWorker();
 
   },[]);
 
@@ -23,7 +24,7 @@ function App() {
     <>
     <Image/>
     <Saying saying={saying}/>
-    <RequestSaying/>
+    {/* <RequestSaying/> */}
     </>
   )
 }
