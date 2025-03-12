@@ -24,6 +24,7 @@ dist-ssr
 *.sw?
 
 /public/google4c57f50fb82d9c79.html
+/netlify.toml
 
 # Local Netlify folder
 .netlify
