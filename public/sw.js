@@ -1,5 +1,5 @@
 const CACHE_NAME = "my-app-cache-v1";
-const urlsToCache = ["/","/main_img.png"];
+const urlsToCache = ["/goodword.xls", "/main_img.png"];
 
 // 서비스 워커 설치 (캐싱)
 self.addEventListener("install", (event) => {
