@@ -35,7 +35,6 @@ function App() {
       <Image />
       <Saying saying={saying} />
       <br/>
-      <br/>
       <RequestSaying/>
       </div>
   );
