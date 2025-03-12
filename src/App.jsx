@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     const now = new Date();
     const isAfter9AM = now.getHours() >= 9;
-    console.log(isAfter9AM);
 
     const toDayaying = localStorage.getItem("saying");
     //TODO 매일 오전 9시에 초기화
@@ -28,15 +27,17 @@ function App() {
       setSaying(JSON.parse(toDayaying));
     }
 
-    registerServiceWorker();
+    // registerServiceWorker();
   }, []);
 
   return (
-    <>
+    <div>
       <Image />
       <Saying saying={saying} />
-      {/* <RequestSaying/> */}
-    </>
+      <br/>
+      <br/>
+      <RequestSaying/>
+      </div>
   );
 }
 
