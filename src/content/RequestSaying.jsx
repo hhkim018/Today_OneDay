@@ -20,6 +20,10 @@ const RequestSaying = () => {
           }
       ]
     })
+    alert("멋진 한마디에요!")
+    word.current.value =""
+    author.current.value =""
+
   }
 
 //   "fields": [
