@@ -1,0 +1,53 @@
+.input-container {
+    display: gird;
+    /* justify-content: center; */
+    align-items: center;
+    /* height: 17vh; */
+    background-color: #F6F0E4;
+    padding: 20px;
+
+    border-color: #A68B6D;
+    border: 1px solid #A68B6D;
+    border-radius: 30px;
+  }
+  
+  .styled-input {
+    width: 85%;
+    max-width: 400px; /* 최대 너비 제한 */
+    padding: 14px 18px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* 포커스 효과 */
+  .styled-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+  }
+  
+  /* Placeholder 스타일 */
+  .styled-input::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+  
+  /* ✅ 반응형 설정 */
+  @media (max-width: 768px) { /* 태블릿 */
+    .styled-input {
+      max-width: 300px;
+      font-size: 14px;
+      padding: 12px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) { /* 모바일 */
+    .styled-input {
+      max-width: 100%;
+      font-size: 14px;
+      padding: 10px 14px;
+    }
+  }
+  
