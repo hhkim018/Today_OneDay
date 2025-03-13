@@ -17,15 +17,15 @@ function App() {
 
     const toDayaying = localStorage.getItem("saying");
     //TODO 매일 오전 9시에 초기화
-    if (toDayaying === null) {
-      ExcelParser().then((val) => {
-        localStorage.setItem("saying", JSON.stringify(val));
-        setSaying(val);
-        Alarm(val);
-      });
-    } else {
-      setSaying(JSON.parse(toDayaying));
-    }
+    // if (toDayaying === null) {
+    ExcelParser().then((val) => {
+      localStorage.setItem("saying", JSON.stringify(val));
+      setSaying(val);
+      Alarm(val);
+    });
+    // } else {
+    // setSaying(JSON.parse(toDayaying));
+    // }
 
     // registerServiceWorker();
   }, []);
@@ -34,9 +34,9 @@ function App() {
     <div>
       <Image />
       <Saying saying={saying} />
-      <br/>
-      <RequestSaying/>
-      </div>
+      <br />
+      <RequestSaying />
+    </div>
   );
 }
 
