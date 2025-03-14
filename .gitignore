@@ -25,7 +25,8 @@ dist-ssr
 
 /public/google4c57f50fb82d9c79.html
 /netlify.toml
-/vite.config.js
+vite.config.js
 
 # Local Netlify folder
 .netlify
+.env*
