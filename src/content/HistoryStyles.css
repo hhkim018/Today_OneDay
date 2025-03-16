@@ -1,0 +1,95 @@
+/* 햄버거 버튼 */
+.hamburger {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    z-index: 1001;
+  }
+  
+  .bar {
+    width: 30px;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  
+  /* 햄버거 버튼 애니메이션 */
+  .rotate-top {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hide {
+    opacity: 0;
+  }
+  .rotate-bottom {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  
+  /* 오버레이 (배경 어두워짐) */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  
+  .overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* 사이드 메뉴 */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
+  }
+  
+  .menu.open {
+    transform: translateX(0);
+  }
+  
+  /* 닫기 버튼 */
+  .close-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    align-self: flex-end;
+    color: #333;
+  }
+  
+  /* 메뉴 항목 */
+  .menu-item {
+    padding: 15px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+  }
+  
