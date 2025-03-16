@@ -15,26 +15,22 @@ function App() {
   const [saying, setSaying] = useState({ word: "", author: "" });
 
   useEffect(() => {
-    const today = new Date();
-    const year = today.getFullYear(); // 연 (YYYY)
-    const month = today.getMonth() + 1; // 월 (1월 = 0, 2월 = 1, ...이므로 +1 필요)
-    const day = today.getDate(); // 일 (1~31)
+    registerServiceWorker()
+    presentSaying();
+  }, []);
 
-    const key = year + "_" + month + "_" + day;
-    const todaySaying = localStorage.getItem(key);
-
-    console.log(new Test().saveSaying());
-
-    if (todaySaying) {
-      const pre = localStorage.getItem(key);
-      setSaying(JSON.parse(pre));
-    } else {
+  async function presentSaying(){
+    const data = new Test();
+    const todaySaying = await data.getTodaySaying();
+    if(!!todaySaying){
+      setSaying(todaySaying);
+    }else{
       ExcelParser().then((val) => {
-        localStorage.setItem(key, JSON.stringify(val));
         setSaying(val);
+        data.saveSaying(val);
       });
     }
-  }, []);
+  }
 
   return (
     <div>
