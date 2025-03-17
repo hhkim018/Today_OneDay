@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --mode dev",
-    "build:dev": "vite --mode dev build",
+    "build": "vite --mode dev build",
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "netlify deploy --prod"

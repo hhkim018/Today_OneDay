@@ -15,16 +15,17 @@ function App() {
   const [saying, setSaying] = useState({ word: "", author: "" });
 
   useEffect(() => {
-    registerServiceWorker()
+    registerServiceWorker();
     presentSaying();
   }, []);
 
-  async function presentSaying(){
+  async function presentSaying() {
     const data = new Test();
     const todaySaying = await data.getTodaySaying();
-    if(!!todaySaying){
+
+    if (todaySaying) {
       setSaying(todaySaying);
-    }else{
+    } else {
       ExcelParser().then((val) => {
         setSaying(val);
         data.saveSaying(val);

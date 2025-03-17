@@ -10,23 +10,25 @@ class Test {
     this.key = year + "-" + month + "-" + day;
   }
 
-  saveSaying(data) {     
+  saveSaying(data) {
     const saveData = {
       date: this.key,
-      ...data
+      ...data,
     };
     this.db.addDate(saveData);
   }
 
   getSayingByDate(date) {
-    this.db.getDataByKey(date)
+    this.db.getDataByKey(date);
   }
 
-  getTodaySaying(){
-   return this.db.getDataByKey(this.key)
+  getAllData() {
+    return this.db.getAllData();
   }
 
-
+  getTodaySaying() {
+    return this.db.getDataByKey(this.key);
+  }
 }
 
 export default Test;

@@ -1,18 +1,8 @@
 import { useEffect, useState } from "react";
 import "./HistoryStyles.css";
+import Accordion from "./Accordion";
 const History = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [localData, setLocalData] = useState([{ word: "", author: "" }]);
-  useEffect(() => {
-    const list = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i); // key 값 가져오기
-      const value = localStorage.getItem(key); // 해당 key에 해당하는 value 값 가져오기
-      list.push(JSON.parse(value));
-      console.log(`${key}: ${value}`);
-    }
-    setLocalData(list);
-  }, []);
 
   return (
     <>
@@ -34,11 +24,10 @@ const History = () => {
         <button className="close-btn" onClick={() => setIsOpen(false)}>
           &times;
         </button>
-        {localData.map((val, index) => (
-          <span key={index}>
-            {val.word} - {val.author}
-          </span>
-        ))}
+        <Accordion />
+        {/* {localData.map((date, index) => (
+          <span key={index}>{date}</span>
+        ))} */}
       </div>
     </>
   );
