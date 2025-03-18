@@ -1,9 +1,14 @@
+import Favofit from "./FavofitClick";
+
 const Saying = ({ saying }) => {
   return (
     <>
-      <strong style={{ fontSize: "30px", color: "black" }}>
-        {saying.word}
-      </strong>
+      <div style={{ display: "flex" }}>
+        <Favofit saying={saying} />
+        <strong style={{ fontSize: "30px", color: "black" }}>
+          {saying.word}
+        </strong>
+      </div>
       <br />
       <br />
       <a

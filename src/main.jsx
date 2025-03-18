@@ -3,11 +3,11 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import "./config/firebaseConfig";
-import Histtory from "./content/Histtory";
+import History from "./content/History";
 
 createRoot(document.getElementById("root")).render(
   <>
-    <Histtory />
+    <History />
     <App />
   </>
 );

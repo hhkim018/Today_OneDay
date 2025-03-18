@@ -8,14 +8,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ShareButton from "./share/ShareButton";
 import MobileInstallBtn from "./popup/MobileInstallBtn";
-import History from "./content/Histtory";
+import History from "./content/History";
 import Test from "./utils/Test";
 
 function App() {
   const [saying, setSaying] = useState({ word: "", author: "" });
 
   useEffect(() => {
-    registerServiceWorker();
+    // registerServiceWorker();
     presentSaying();
   }, []);
 

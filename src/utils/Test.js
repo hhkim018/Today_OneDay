@@ -12,10 +12,17 @@ class Test {
 
   saveSaying(data) {
     const saveData = {
-      date: this.key,
+      key: this.key,
       ...data,
     };
     this.db.addDate(saveData);
+  }
+
+  saveLiked(data) {
+    this.db.addDate(data);
+  }
+  getData(key) {
+    return this.db.getDataByKey(key);
   }
 
   getSayingByDate(date) {

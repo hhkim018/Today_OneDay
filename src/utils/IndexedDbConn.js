@@ -9,9 +9,9 @@ const IndexedDbConn = () => {
         const db = request.result;
         if (!db.objectStoreNames.contains(STORE_NAME)) {
           const objectStore = db.createObjectStore(STORE_NAME, {
-            keyPath: "date",
+            keyPath: "key",
           });
-          objectStore.createIndex("date", "date", { unique: true });
+          objectStore.createIndex("key", "key", { unique: true });
         }
       };
       request.onsuccess = (e) => {
@@ -26,7 +26,7 @@ const IndexedDbConn = () => {
   const addDate = async (data) => {
     console.log(data);
     const store = await connect();
-    store.add(data);
+    store.put(data);
   };
 
   const getDataByKey = (key) => {
