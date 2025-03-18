@@ -24,11 +24,11 @@ const FavofitClick = ({ saying }) => {
   async function clickLiked() {
     const currentStat = !liked;
     setLiked(currentStat);
-    const likedList = await db.getData("liked");
     // 하루에한번 보여지는건데 , 오늘 좋아요 누르던가 안누르던가 두가지 경우만 존재,
+    const likedList = await db.getData("liked");
+
     if (currentStat) {
-      console.log(likedList.list);
-      if (!!likedList && likedList.list.length === 0) {
+      if (!likedList) {
         db.saveLiked({ key: "liked", list: [saying] });
       }
     } else {

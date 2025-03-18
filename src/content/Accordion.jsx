@@ -17,7 +17,9 @@ const Accordion = () => {
   async function viewHist() {
     const data = new Test();
     const likedList = await data.getData("liked");
-    setHistData(likedList.list);
+    if (likedList) {
+      setHistData(likedList.list);
+    }
   }
 
   return (
