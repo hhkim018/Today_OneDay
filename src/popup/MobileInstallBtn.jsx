@@ -26,12 +26,23 @@ const MobileInstallBtn = () => {
           deferredPrompt = null;
         });
       });
-
-      closeBtn.current.addEventListener("click", () => {
-        popup.current.style.display = "none";
-      });
     });
+
+    isPWAInstalled();
   }, []);
+
+  function isPWAInstalled() {
+    if (window.matchMedia("(display-mode: standalone)").matches) {
+      return true;
+    } else if (navigator.standalone) {
+      return true;
+    } else {
+      alert(
+        "홈 화면에 추가하려면 '공유' 버튼을 클릭하고, '홈 화면에 추가'를 선택하세요."
+      );
+      return false;
+    }
+  }
 
   return (
     <div ref={popup} className="popup-overlay">
@@ -44,9 +55,6 @@ const MobileInstallBtn = () => {
         <button ref={installBtn} className="popup-action-btn">
           홈 화면에 추가
         </button>
-        {/* <button ref={closeBtn} className="popup-close-btn">
-          닫기
-        </button> */}
       </div>
     </div>
   );

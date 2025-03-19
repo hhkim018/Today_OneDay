@@ -28,7 +28,11 @@ const FavofitClick = ({ saying }) => {
     const likedList = await db.getData("liked");
 
     if (currentStat) {
-      if (!likedList) {
+      const existList = likedList;
+      if (existList) {
+        likedList.list.push(saying);
+        db.saveLiked({ key: "liked", list: likedList });
+      } else {
         db.saveLiked({ key: "liked", list: [saying] });
       }
     } else {
