@@ -24,7 +24,6 @@ const IndexedDbConn = () => {
   };
 
   const addDate = async (data) => {
-    console.log(data);
     const store = await connect();
     store.put(data);
   };

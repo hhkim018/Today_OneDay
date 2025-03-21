@@ -11,7 +11,6 @@ const MobileInstallBtn = () => {
     window.addEventListener("beforeinstallprompt", (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      // Show your custom UI for the install prompt, like a button
       const installButton = popup.current;
       installButton.style.display = "flex";
 
@@ -26,9 +25,13 @@ const MobileInstallBtn = () => {
           deferredPrompt = null;
         });
       });
+      closeBtn.current.addEventListener("click", () => {
+        popup.current.style.display = "none";
+      });
     });
-
-    isPWAInstalled();
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      isPWAInstalled();
+    }
   }, []);
 
   function isPWAInstalled() {

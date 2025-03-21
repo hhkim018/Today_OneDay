@@ -24,10 +24,7 @@ const History = () => {
         <button className="close-btn" onClick={() => setIsOpen(false)}>
           &times;
         </button>
-        <Accordion />
-        {/* {localData.map((date, index) => (
-          <span key={index}>{date}</span>
-        ))} */}
+        <Accordion isOpen={isOpen} />
       </div>
     </>
   );

@@ -14,7 +14,7 @@ const ExcelParser = async () => {
   const row = Object.values(saying[sayingIdx])[0].split("-");
 
   const word = row[0];
-  const author = row[1];
+  const author = row[1] ? row[1] : "불명";
   return { word, author };
 };
 

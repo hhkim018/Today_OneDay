@@ -11,9 +11,9 @@ const FavofitClick = ({ saying }) => {
   }, [saying]);
 
   async function initHeart() {
-    const likedList = await db.getData("liked");
-    if (likedList) {
-      likedList.list.forEach((val) => {
+    const likedObj = await db.getData("liked");
+    if (likedObj) {
+      likedObj.list.forEach((val) => {
         if (val.word === saying.word) {
           setLiked(true);
         }
@@ -24,20 +24,19 @@ const FavofitClick = ({ saying }) => {
   async function clickLiked() {
     const currentStat = !liked;
     setLiked(currentStat);
-    // 하루에한번 보여지는건데 , 오늘 좋아요 누르던가 안누르던가 두가지 경우만 존재,
-    const likedList = await db.getData("liked");
+
+    const likedObj = await db.getData("liked");
 
     if (currentStat) {
-      const existList = likedList;
-      if (existList) {
-        likedList.list.push(saying);
-        db.saveLiked({ key: "liked", list: likedList });
+      if (likedObj) {
+        likedObj.list.push(saying);
+        db.saveLiked({ key: "liked", list: likedObj.list });
       } else {
         db.saveLiked({ key: "liked", list: [saying] });
       }
     } else {
       // 삭제
-      const afterDeleteList = likedList.list.filter(
+      const afterDeleteList = likedObj.list.filter(
         (data) => data.word !== saying.word
       );
       db.saveLiked({ key: "liked", list: afterDeleteList });

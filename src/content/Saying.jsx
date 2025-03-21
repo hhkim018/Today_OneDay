@@ -3,8 +3,8 @@ import Favofit from "./FavofitClick";
 const Saying = ({ saying }) => {
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <Favofit saying={saying} />
+      <Favofit saying={saying} />
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <strong style={{ fontSize: "30px", color: "black" }}>
           {saying.word}
         </strong>
@@ -20,7 +20,7 @@ const Saying = ({ saying }) => {
           textDecoration: "underline",
         }}
       >
-        -{saying.author || "불명"}-
+        -{saying.author}-
       </a>
     </>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./AccordionStyle.css";
 import Test from "../utils/Test";
 
-const Accordion = () => {
+const Accordion = (isOpen) => {
   const [openId, setOpenId] = useState(null);
   const [histData, setHistData] = useState([]);
 
@@ -12,7 +12,7 @@ const Accordion = () => {
 
   useEffect(() => {
     viewHist();
-  }, [openId]);
+  }, [isOpen]);
 
   async function viewHist() {
     const data = new Test();
@@ -25,17 +25,15 @@ const Accordion = () => {
   return (
     <div className="accordion">
       {histData.map((item) => (
-        <div key={item.date} className="accordion-item">
+        <div key={item.key} className="accordion-item">
           <button
             className="accordion-header"
-            onClick={() => toggleItem(item.date)}
+            onClick={() => toggleItem(item.key)}
           >
             {item.key}
           </button>
           <div
-            className={`accordion-content ${
-              openId === item.date ? "open" : ""
-            }`}
+            className={`accordion-content ${openId === item.key ? "open" : ""}`}
           >
             {item.word}
             <br />-{item.author}-
