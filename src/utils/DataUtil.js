@@ -1,6 +1,6 @@
-import IndexedDbConn from "./IndexedDbConn";
+import IndexedDbConn from "./indexdb/IndexedDbConn";
 
-class Test {
+class DataUtil {
   constructor() {
     this.db = IndexedDbConn();
     const today = new Date();
@@ -12,7 +12,7 @@ class Test {
 
   saveSaying(data) {
     const saveData = {
-      key: this.key,
+      date: this.key,
       ...data,
     };
     this.db.addDate(saveData);
@@ -36,6 +36,10 @@ class Test {
   getTodaySaying() {
     return this.db.getDataByKey(this.key);
   }
+
+  getKey(){
+    return this.key;
+  }
 }
 
-export default Test;
+export default DataUtil;

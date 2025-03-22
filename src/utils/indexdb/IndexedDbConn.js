@@ -9,9 +9,9 @@ const IndexedDbConn = () => {
         const db = request.result;
         if (!db.objectStoreNames.contains(STORE_NAME)) {
           const objectStore = db.createObjectStore(STORE_NAME, {
-            keyPath: "key",
+            keyPath: "date",
           });
-          objectStore.createIndex("key", "key", { unique: true });
+          objectStore.createIndex("date", "date", { unique: true });
         }
       };
       request.onsuccess = (e) => {

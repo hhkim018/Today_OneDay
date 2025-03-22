@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./HistoryStyles.css";
+import "./css/HistoryStyles.css";
 import Accordion from "./Accordion";
 const History = () => {
   const [isOpen, setIsOpen] = useState(false);

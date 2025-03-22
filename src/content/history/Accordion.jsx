@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./AccordionStyle.css";
-import Test from "../utils/Test";
-
+import "./css/AccordionStyle.css";
+import DataUtil from "../../utils/DataUtil";
 const Accordion = (isOpen) => {
   const [openId, setOpenId] = useState(null);
   const [histData, setHistData] = useState([]);
@@ -15,7 +14,7 @@ const Accordion = (isOpen) => {
   }, [isOpen]);
 
   async function viewHist() {
-    const data = new Test();
+    const data = new DataUtil();
     const likedList = await data.getData("liked");
     if (likedList) {
       setHistData(likedList.list);
@@ -25,15 +24,15 @@ const Accordion = (isOpen) => {
   return (
     <div className="accordion">
       {histData.map((item) => (
-        <div key={item.key} className="accordion-item">
+        <div key={item.date} className="accordion-item">
           <button
             className="accordion-header"
-            onClick={() => toggleItem(item.key)}
+            onClick={() => toggleItem(item.date)}
           >
-            {item.key}
+            {item.date}
           </button>
           <div
-            className={`accordion-content ${openId === item.key ? "open" : ""}`}
+            className={`accordion-content ${openId === item.date ? "open" : ""}`}
           >
             {item.word}
             <br />-{item.author}-

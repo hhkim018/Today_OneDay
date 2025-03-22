@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "./StyledInput.css"; // CSS 파일 불러오기
+import "./css/StyledInput.css"; // CSS 파일 불러오기
 import axios from "axios";
 const RequestSaying = () => {
   const word = useRef(null);

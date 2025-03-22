@@ -1,4 +1,4 @@
-import Favofit from "./FavofitClick";
+import Favofit from "./Heart";
 
 const Saying = ({ saying }) => {
   return (

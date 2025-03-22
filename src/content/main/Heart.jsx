@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Heart } from "lucide-react";
-import Test from "../utils/Test";
+import DataUtil from "../../utils/DataUtil";
 
 const FavofitClick = ({ saying }) => {
   const [liked, setLiked] = useState(false);
-  const db = new Test();
+  const db = new DataUtil();
 
   useEffect(() => {
     initHeart();
@@ -29,17 +29,18 @@ const FavofitClick = ({ saying }) => {
 
     if (currentStat) {
       if (likedObj) {
+        saying.date = db.getKey();
         likedObj.list.push(saying);
-        db.saveLiked({ key: "liked", list: likedObj.list });
+        db.saveLiked({ date: "liked", list: likedObj.list });
       } else {
-        db.saveLiked({ key: "liked", list: [saying] });
+        db.saveLiked({ date: "liked", list: [saying] });
       }
     } else {
       // 삭제
       const afterDeleteList = likedObj.list.filter(
         (data) => data.word !== saying.word
       );
-      db.saveLiked({ key: "liked", list: afterDeleteList });
+      db.saveLiked({ date: "liked", list: afterDeleteList });
     }
   }
 

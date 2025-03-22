@@ -1,15 +1,15 @@
 import ExcelParser from "./utils/ExcelParser";
-import Image from "./content/Image";
-import Saying from "./content/Saying";
-import RequestSaying from "./content/RequestSaying";
+import Image from "./content//main/Image";
+import Saying from "./content/main/Saying";
+import RequestSaying from "./content/main/RequestSaying";
 import { registerServiceWorker } from "./utils/ServiceWorker";
 import "./App.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import ShareButton from "./share/ShareButton";
-import MobileInstallBtn from "./popup/MobileInstallBtn";
-import History from "./content/History";
-import Test from "./utils/Test";
+import MobileInstallBtn from "./installPopup/MobileInstallBtn";
+import History from "./content/history/History";
+import DataUtil from "./utils/DataUtil";
 
 function App() {
   const [saying, setSaying] = useState({ word: "", author: "" });
@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   async function presentSaying() {
-    const data = new Test();
+    const data = new DataUtil();
     const todaySaying = await data.getTodaySaying();
 
     if (todaySaying) {

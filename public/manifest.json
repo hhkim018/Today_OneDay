@@ -18,5 +18,28 @@
       "type": "image/png",
       "purpose": "any"
     }
-  ]
+  ],
+  "screenshots": [
+  {
+    "src": "/main_img.png",
+    "sizes": "2869x1581",
+    "form_factor": "wide",
+    "type": "image/png"
+  },
+  {
+    "src": "/main_img.png",
+    "sizes": "2869x1581",
+  "type": "image/png",
+    "platform": "ios",
+    "label": "홈 화면에 설치해서 하루의 시작을 명언으로 시작해보세요"
+  },
+  {
+    "src": "/main_img.png",
+    "sizes": "2869x1581",
+    "type": "image/png",
+    "platform": "android",
+    "label": "홈 화면에 설치해서 하루의 시작을 명언으로 시작해보세요"
+  }
+]
+  
 }
